@@ -33,18 +33,20 @@ class MarkersExporter(bpy.types.Operator):
             startFrame =  action.frame_range[0]
             endFrame = action.frame_range[1] 
             
+            isThisActionHasMarkers = len(action.pose_markers)
             
-            # markers write
-            file = open(action.name + ".xml", 'wt')
-            file.write("<animation>\n")
+            if (isThisActionHasMarkers):
+                # markers write
+                file = open(action.name + ".xml", 'wt')
+                file.write("<animation>\n")
                 
-            for i, marker in enumerate(action.pose_markers):
-                print ("marker index: {0} frame: {1} name: {2}".format(i, marker.frame, marker.name))
-                file.write('    <trigger time="{0:.2f}" type="String" value="{1}" />\n'.format(marker.frame / fps, marker.name))
+                for i, marker in enumerate(action.pose_markers):
+                    print ("marker index: {0} frame: {1} name: {2}".format(i, marker.frame, marker.name))
+                    file.write('    <trigger time="{0:.2f}" type="String" value="{1}" />\n'.format(marker.frame / fps, marker.name))
                 
             
-            file.write("</animation>")                 
-            file.close()
+                file.write("</animation>")                 
+                file.close()
             
     def SaveGlobalSceneMarkers(self, context):
         isSceneHasMarkers = len(context.scene.timeline_markers)  
