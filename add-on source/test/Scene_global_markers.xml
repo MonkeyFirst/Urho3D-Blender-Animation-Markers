@@ -1,0 +1,4 @@
+<animation>
+    <trigger time="1.08" type="String" value="SomeGlobalEventOnF_26" />
+    <trigger time="2.62" type="String" value="Global_Event_F_63" />
+</animation>

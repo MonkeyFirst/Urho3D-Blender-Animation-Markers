@@ -1,0 +1,4 @@
+<animation>
+    <trigger time="0.62" type="String" value="F_15" />
+    <trigger time="1.50" type="String" value="F_36" />
+</animation>
