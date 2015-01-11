@@ -1,4 +1,6 @@
 <animation>
-    <trigger time="1.08" type="String" value="SomeGlobalEventOnF_26" />
-    <trigger time="2.62" type="String" value="Global_Event_F_63" />
+    <trigger normalizedtime="0.10" type="String" value="SomeGlobalEventOnF_26" />
+    <trigger normalizedtime="0.25" type="String" value="Global_Event_F_63" />
+    <trigger normalizedtime="0.50" type="String" value="F_125" />
+    <trigger normalizedtime="1.00" type="String" value="F_250" />
 </animation>
