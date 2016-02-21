@@ -27,7 +27,7 @@ class MarkersExporter(bpy.types.Operator):
     
         if (bpy.data.filepath == ""):
             self.report({'ERROR'}, "SAVE FILE PLS")
-            return;
+            return
         
         print ("Actions count:", len(bpy.data.actions));
         fps = context.scene.render.fps
