@@ -1,6 +1,8 @@
 bl_info = {
     "name": "Animation Markers Exporter For Urho3D",
     "author": "codingmonkey",
+    "location": "Object > Urho3D Markers Create",
+    "tracker_url": "https://github.com/MonkeyFirst/Urho3D-Blender-Animation-Markers",
     "category": "Object",
     "blender": (2, 73, 1)   
 }
@@ -22,6 +24,10 @@ class MarkersExporter(bpy.types.Operator):
     normalizeMarkers = BoolProperty( name="Normalize markers", description="Normalize markers", default=False )
    
     def SaveLocalActionMarkes(self, context):
+    
+        if (bpy.data.filepath == ""):
+            self.report({'ERROR'}, "SAVE FILE PLS")
+            return;
         
         print ("Actions count:", len(bpy.data.actions));
         fps = context.scene.render.fps
@@ -42,7 +48,7 @@ class MarkersExporter(bpy.types.Operator):
             
             if (isThisActionHasMarkers):
                 # markers write
-                file = open(action.name + ".xml", 'wt')
+                file = open(os.path.dirname(bpy.data.filepath) + "/" + action.name + ".xml", 'wt')
                 file.write("<animation>\n")
                 
                 for i, marker in enumerate(action.pose_markers):
